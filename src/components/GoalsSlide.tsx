@@ -31,8 +31,27 @@ export function GoalsSlide() {
 
   return (
     <div className="h-full flex flex-col px-16 py-12 relative overflow-hidden">
-      {/* Subtle background accents */}
-      <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-white/3 rounded-full blur-3xl"></div>
+      {/* Enhanced background accents with animation */}
+      <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-white/3 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
+      <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-green-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }}></div>
+      
+      {/* Animated particles */}
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        {[...Array(5)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-gradient-to-r from-green-400 to-blue-400 opacity-30 blur-xl animate-float"
+            style={{
+              width: `${Math.random() * 80 + 40}px`,
+              height: `${Math.random() * 80 + 40}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDuration: `${Math.random() * 10 + 15}s`,
+              animationDelay: `${Math.random() * 5}s`,
+            }}
+          />
+        ))}
+      </div>
       
       <div className="flex-1 flex flex-col justify-center relative z-10">
         {/* Transitional hook - NEW */}
@@ -55,10 +74,10 @@ export function GoalsSlide() {
           Closing the usage gap isn't a "nice-to-have" — it's a step-change in performance.
         </p>
 
-        {/* Assumptions callout - NEW */}
-        <div className="mb-10 p-5 rounded-xl bg-blue-500/10 border border-blue-500/20 shadow-lg">
+        {/* Assumptions callout - ENHANCED */}
+        <div className="mb-10 p-5 rounded-xl bg-blue-500/10 border border-blue-500/20 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <div className="flex items-start gap-3">
-            <Brain className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+            <Brain className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5 animate-pulse" style={{ animationDuration: '3s' }} />
             <div>
               <div className="text-sm text-blue-200/90 mb-1">Methodology</div>
               <p className="text-xs text-blue-200/70 leading-relaxed">
@@ -75,17 +94,18 @@ export function GoalsSlide() {
               return (
                 <div
                   key={index}
-                  className="group relative rounded-2xl overflow-hidden p-8 border border-white/20 shadow-xl hover:border-white/30 hover:scale-[1.02] transition-all duration-300"
+                  className="group relative rounded-2xl overflow-hidden p-8 border border-white/20 shadow-xl hover:border-white/30 hover:scale-[1.02] hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-300 animate-fade-in-up"
+                  style={{ animationDelay: `${0.4 + index * 0.15}s` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-white/4 to-white/4 opacity-95"></div>
                   <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
                   
                   <div className="relative z-10 flex items-center gap-6">
-                    <div className="w-14 h-14 rounded-xl bg-white/15 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-all duration-500">
+                    <div className="w-14 h-14 rounded-xl bg-white/15 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                       <IconComponent className="w-7 h-7 text-white/90" />
                     </div>
                     <div className="flex-1">
-                      <div className="text-5xl tracking-tight mb-1.5">{metric.stat}</div>
+                      <div className="text-5xl tracking-tight mb-1.5 font-bold">{metric.stat}</div>
                       <div className="text-base text-white/90 mb-0.5">{metric.label}</div>
                       <div className="text-xs text-white/60">{metric.caption}</div>
                     </div>
@@ -96,7 +116,7 @@ export function GoalsSlide() {
           </div>
 
           <div className="flex items-center justify-center">
-            <div className="w-full h-full rounded-2xl bg-black/40 backdrop-blur-sm border border-white/20 hover:border-white/25 p-10 shadow-xl transition-all duration-300">
+            <div className="w-full h-full rounded-2xl bg-black/40 backdrop-blur-sm border border-white/20 hover:border-white/25 hover:shadow-2xl hover:shadow-blue-500/10 p-10 shadow-xl transition-all duration-500 animate-fade-in-up" style={{ animationDelay: '0.85s' }}>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center">
                   <TrendingUp className="w-5 h-5 text-white/80" />
@@ -119,10 +139,12 @@ export function GoalsSlide() {
                   />
                   <Tooltip 
                     contentStyle={{ 
-                      backgroundColor: 'rgba(0,0,0,0.9)', 
+                      backgroundColor: 'rgba(0,0,0,0.95)', 
                       border: '1px solid rgba(255,255,255,0.2)',
-                      borderRadius: '8px',
-                      fontSize: '13px'
+                      borderRadius: '12px',
+                      fontSize: '13px',
+                      padding: '12px',
+                      boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
                     }}
                     formatter={(value, name, props) => {
                       if (name === 'Before AI' || name === 'After AI') {
@@ -136,10 +158,10 @@ export function GoalsSlide() {
                     wrapperStyle={{ fontSize: '13px', paddingTop: '15px' }}
                     iconType="circle"
                   />
-                  <Bar dataKey="before" fill="#fb923c" name="Before AI" radius={[6, 6, 0, 0]} opacity={0.9}>
+                  <Bar dataKey="before" fill="#fb923c" name="Before AI" radius={[6, 6, 0, 0]} opacity={0.9} animationDuration={1500} animationBegin={200}>
                     <LabelList dataKey="before" position="top" fill="rgba(255,255,255,0.6)" fontSize={11} />
                   </Bar>
-                  <Bar dataKey="after" fill="#60a5fa" name="After AI" radius={[6, 6, 0, 0]} opacity={0.9}>
+                  <Bar dataKey="after" fill="#60a5fa" name="After AI" radius={[6, 6, 0, 0]} opacity={0.9} animationDuration={1500} animationBegin={600}>
                     <LabelList dataKey="improvement" position="top" fill="#22d3ee" fontSize={12} fontWeight="bold" />
                   </Bar>
                 </BarChart>
