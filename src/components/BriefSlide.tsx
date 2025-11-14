@@ -1,5 +1,5 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Legend, Tooltip } from 'recharts';
-import { TrendingUp, AlertTriangle, Sparkles } from 'lucide-react';
+import { TrendingUp, AlertTriangle } from 'lucide-react';
 
 export function BriefSlide() {
   const gapData = [
@@ -13,27 +13,8 @@ export function BriefSlide() {
 
   return (
     <div className="h-full flex flex-col px-16 py-12 relative overflow-hidden">
-      {/* Enhanced background accents with animation */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/3 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
-      <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }}></div>
-      
-      {/* Animated particles */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-r from-cyan-400 to-pink-400 opacity-30 blur-xl animate-float"
-            style={{
-              width: `${Math.random() * 100 + 50}px`,
-              height: `${Math.random() * 100 + 50}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 10 + 15}s`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Subtle background accent */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/3 rounded-full blur-3xl"></div>
       
       <div className="flex-1 flex flex-col justify-center relative z-10">
         <div className="flex items-start gap-4 mb-6">
@@ -49,19 +30,19 @@ export function BriefSlide() {
           AI capability is exploding — but usage inside small businesses lags far behind.
         </p>
 
-        {/* Quantified data callout - ENHANCED with animations */}
+        {/* Quantified data callout - NEW */}
         <div className="mb-12 flex items-center gap-6">
-          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 shadow-lg hover:shadow-cyan-500/30 hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <AlertTriangle className="w-5 h-5 text-cyan-400 animate-pulse" style={{ animationDuration: '3s' }} />
+          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 shadow-lg">
+            <AlertTriangle className="w-5 h-5 text-cyan-400" />
             <div>
-              <span className="text-2xl text-cyan-200 font-bold">52%</span>
+              <span className="text-2xl text-cyan-200">52%</span>
               <span className="text-base text-cyan-200/80 ml-2">of SMEs now use AI tools</span>
             </div>
           </div>
-          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-rose-500/10 border border-rose-500/20 shadow-lg hover:shadow-rose-500/30 hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <AlertTriangle className="w-5 h-5 text-rose-400 animate-pulse" style={{ animationDuration: '3s', animationDelay: '0.5s' }} />
+          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-rose-500/10 border border-rose-500/20 shadow-lg">
+            <AlertTriangle className="w-5 h-5 text-rose-400" />
             <div>
-              <span className="text-2xl text-rose-200 font-bold">12%</span>
+              <span className="text-2xl text-rose-200">12%</span>
               <span className="text-base text-rose-200/80 ml-2">see measurable productivity gains</span>
             </div>
           </div>
@@ -109,33 +90,20 @@ export function BriefSlide() {
           </div>
 
           <div className="flex items-center justify-center">
-            <div className="w-full h-[420px] rounded-3xl bg-white/5 backdrop-blur-md border border-white/20 hover:border-white/25 hover:shadow-2xl hover:shadow-cyan-500/10 p-8 shadow-2xl transition-all duration-500 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <div className="w-full h-[420px] rounded-3xl bg-white/5 backdrop-blur-md border border-white/20 hover:border-white/25 p-8 shadow-2xl transition-all duration-300">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="relative">
-                    <TrendingUp className="w-5 h-5 text-white/60" />
-                    <Sparkles className="w-3 h-3 text-cyan-400 absolute -top-1 -right-1 animate-pulse" style={{ animationDuration: '2s' }} />
-                  </div>
+                  <TrendingUp className="w-5 h-5 text-white/60" />
                   <div className="text-lg text-white/80">The Divergence (2020-2025)</div>
                 </div>
-                {/* Gap indicator - ENHANCED */}
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/20 animate-pulse" style={{ animationDuration: '3s' }}>
-                  <div className="text-xl text-rose-300 font-bold">52pt</div>
+                {/* Gap indicator - NEW */}
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/20">
+                  <div className="text-xl text-rose-300">52pt</div>
                   <div className="text-xs text-rose-300/80">gap</div>
                 </div>
               </div>
               <ResponsiveContainer width="100%" height="82%">
                 <LineChart data={gapData} margin={{ top: 10, right: 10, left: 0, bottom: 20 }}>
-                  <defs>
-                    <linearGradient id="capabilityGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#22d3ee" stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor="#22d3ee" stopOpacity={0}/>
-                    </linearGradient>
-                    <linearGradient id="usageGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#fb7185" stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor="#fb7185" stopOpacity={0}/>
-                    </linearGradient>
-                  </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
                   <XAxis 
                     dataKey="year" 
@@ -150,12 +118,10 @@ export function BriefSlide() {
                   />
                   <Tooltip 
                     contentStyle={{ 
-                      backgroundColor: 'rgba(0,0,0,0.95)', 
+                      backgroundColor: 'rgba(0,0,0,0.9)', 
                       border: '1px solid rgba(255,255,255,0.2)',
-                      borderRadius: '12px',
-                      fontSize: '12px',
-                      padding: '12px',
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
+                      borderRadius: '8px',
+                      fontSize: '12px'
                     }}
                   />
                   <Legend 
@@ -165,25 +131,19 @@ export function BriefSlide() {
                     type="monotone" 
                     dataKey="capability" 
                     stroke="#22d3ee" 
-                    strokeWidth={4}
+                    strokeWidth={3}
                     name="AI Capability Growth"
                     dot={{ fill: '#22d3ee', r: 6, strokeWidth: 2, stroke: '#0e7490' }}
-                    activeDot={{ r: 9, stroke: '#22d3ee', strokeWidth: 3, fill: '#0e7490', filter: 'drop-shadow(0 0 8px #22d3ee)' }}
-                    animationDuration={2000}
-                    animationBegin={200}
-                    animationEasing="ease-out"
+                    activeDot={{ r: 8 }}
                   />
                   <Line 
                     type="monotone" 
                     dataKey="usage" 
                     stroke="#fb7185" 
-                    strokeWidth={4}
+                    strokeWidth={3}
                     name="SMB Adoption & Usage"
                     dot={{ fill: '#fb7185', r: 6, strokeWidth: 2, stroke: '#be123c' }}
-                    activeDot={{ r: 9, stroke: '#fb7185', strokeWidth: 3, fill: '#be123c', filter: 'drop-shadow(0 0 8px #fb7185)' }}
-                    animationDuration={2000}
-                    animationBegin={400}
-                    animationEasing="ease-out"
+                    activeDot={{ r: 8 }}
                   />
                 </LineChart>
               </ResponsiveContainer>
