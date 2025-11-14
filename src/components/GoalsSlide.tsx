@@ -1,14 +1,7 @@
-import { TrendingUp, Clock, Users, Target, Smile, Brain, Award, Sparkles } from 'lucide-react';
+import { TrendingUp, Clock, Users, Target, Smile, Brain, Award } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Legend, Tooltip, LabelList } from 'recharts';
-import { useState, useEffect } from 'react';
 
 export function GoalsSlide() {
-  const [animationComplete, setAnimationComplete] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setAnimationComplete(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
   const metrics = [
     {
       stat: '10–40%',

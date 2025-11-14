@@ -1,14 +1,7 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 import { TrendingUp, AlertTriangle, Sparkles } from 'lucide-react';
-import { useState, useEffect } from 'react';
 
 export function BriefSlide() {
-  const [animationComplete, setAnimationComplete] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setAnimationComplete(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
   const gapData = [
     { year: '2020', capability: 20, usage: 18 },
     { year: '2021', capability: 35, usage: 22 },
